@@ -44,6 +44,7 @@ public class Question2 extends SlingSafeMethodsServlet {
         for (Resource children : resourceChildrens) {
             Node node = children.adaptTo(Node.class);
             try {
+
                 title = node.getProperty("Title").getValue().toString();
                 date = node.getProperty("Date").getValue().toString();
             } catch (RepositoryException e) {
@@ -52,7 +53,7 @@ public class Question2 extends SlingSafeMethodsServlet {
             blogsList.add(new Blogs(title, date));
         }
         response.getWriter().println(" Ascending order :");
-        Collections.sort(blogsList, new Comparator<Blogs>() {
+        blogsList.sort(new Comparator<Blogs>() {
             @Override
             public int compare(Blogs o1, Blogs o2) {
                 return o1.getDate().compareTo(o2.getDate());
@@ -63,7 +64,7 @@ public class Question2 extends SlingSafeMethodsServlet {
 
         response.getWriter().println(blogsList);
         response.getWriter().println("Descending");
-        Collections.sort(blogsList, new Comparator<Blogs>() {
+        blogsList.sort(new Comparator<Blogs>() {
             @Override
             public int compare(Blogs o1, Blogs o2) {
                 return -o1.getDate().compareTo(o2.getDate());
