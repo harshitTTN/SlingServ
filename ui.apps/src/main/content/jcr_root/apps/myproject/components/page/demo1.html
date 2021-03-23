@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+<h1 data-sly-use.timedate="${'demo.js'}">
+    PRINTING DATE TIME USING JS : ${timedate.date}
+</h1>
+<sly data-sly-use.q3 = "DropDownList1">
+
+    <h1>${q3.dropdownList.toString}</h1>
+    <div class="container">
+        <select data-sly-list.options="${q3.dropdownMap}" id="selectId" onchange="colorbg()">
+
+
+            <option value="${options}">${q3.dropdownMap[options]}</option>
+
+
+        </select>
+    </div>
+</sly>
+
+</body>
+<script>
+
+  function colorbg()
+     {
+        var x=document.getElementById("selectId");
+        var bgcolor=x.options[x.selectedIndex].value;
+        document.body.style.backgroundColor=bgcolor;
+     }
+</script>
+
+</html>
