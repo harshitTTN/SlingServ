@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+<h1 data-sly-use.timedate="${'demo.js'}">
+    PRINTING DATE TIME USING JS : ${timedate.date}
+</h1>
+<sly data-sly-use.q2 = "DropDownList">
+
+    <h1>${q2.dropdownList.toString}</h1>
+
+    <select data-sly-list.options="${q2.dropdownMap}">
+
+
+            <option value="${options}">${q2.dropdownMap[options]}</option>
+
+
+    </select>
+</sly>
+
+</body>
+</html>
