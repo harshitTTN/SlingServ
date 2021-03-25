@@ -27,7 +27,7 @@
 
     <h1>${q3.dropdownList.toString}</h1>
     <div class="container2">
-        <select data-sly-list.options="${q3.dropdownMap}" id="selectId2" onchange="colorbg()">
+        <select data-sly-list.options="${q3.dropdownMap}" id="selectId2" onchange="colorbg1()">
 
 
             <option value="${options}">${q3.dropdownMap[options]}</option>
@@ -43,11 +43,20 @@
   function colorbg()
      {
         var x=document.getElementById("selectId");
-        var y=document.getElementById("selectId2");
+
         var bgcolor=x.options[x.selectedIndex].value;
+
+        x.parentElement.style.backgroundColor=bgcolor;
+
+     }
+     function colorbg1()
+     {
+
+        var y=document.getElementById("selectId2");
+
         var bgcolor2=y.options[y.selectedIndex].value;
-        document.body.style.backgroundColor=bgcolor;
-        document.body.style.backgroundColor=bgcolor2;
+
+        y.parentElement.style.backgroundColor=bgcolor2;
      }
 </script>
 
